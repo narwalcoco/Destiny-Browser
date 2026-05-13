@@ -1,0 +1,218 @@
+:root {
+    --bg-color: #1e1e1e;
+    /* Deep dark gray for the very top */
+    --tab-active: #323639;
+    /* Slightly lighter for the active tab */
+    --nav-color: #323639;
+    /* Matches the active tab */
+    --text-color: #e8eaed;
+    --accent: #8ab4f8;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bootloader */
+#bootloader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* The Modern Rounded Tabs */
+.tab-bar {
+    display: flex;
+    padding: 8px 12px 0;
+    background: var(--bg-color);
+    gap: 6px;
+    align-items: flex-end;
+}
+
+.tab {
+    background: var(--tab-active);
+    padding: 8px 24px;
+    font-size: 13px;
+    position: relative;
+    /* This creates the modern rounded top corners */
+    border-radius: 12px 12px 0 0;
+    min-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+}
+
+.new-tab-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 2px;
+}
+
+.new-tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Nav Bar & Spacing Fixes --- */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    background: var(--nav-color);
+    padding: 8px 16px;
+    gap: 16px;
+    /* More breathing room overall */
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+    /* Spaces out the Back, Forward, and Refresh buttons */
+}
+
+#address-bar {
+    flex-grow: 1;
+    max-width: 800px;
+    /* Stops it from stretching infinitely */
+    margin: 0 auto;
+    /* Centers the bar in the remaining space */
+    background: #202124;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+#address-bar:focus {
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+.nav-buttons button,
+.new-tab-btn,
+#settings-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
+.nav-buttons button:hover,
+.new-tab-btn:hover,
+#settings-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Edge-to-Edge Viewport Fix --- */
+#content-area {
+    flex: 1;
+    background: #ffffff;
+    /* Webpage default background */
+    padding: 0;
+    /* REMOVED padding for edge-to-edge */
+    display: flex;
+    box-sizing: border-box;
+}
+
+#browser-view {
+    flex: 1;
+    border: none;
+    border-radius: 0;
+    /* REMOVED rounding */
+    width: 100%;
+    height: 100%;
+}
+
+/* --- The Recreated New Tab Page --- */
+#new-tab-page {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+}
+
+.ntp-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    transform: translateY(-10vh);
+    /* Pushes it up slightly off-center like Chrome */
+}
+
+.ntp-logo {
+    font-size: 72px;
+    font-weight: 500;
+    margin: 0 0 30px 0;
+    letter-spacing: -2px;
+}
+
+.ntp-search {
+    display: flex;
+    align-items: center;
+    background: #202124;
+    border-radius: 24px;
+    width: 100%;
+    padding: 12px 20px;
+    gap: 12px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ntp-search:focus-within {
+    background: #303134;
+    border-color: var(--accent);
+}
+
+#ntp-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}

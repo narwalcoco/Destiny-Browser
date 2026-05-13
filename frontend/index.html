@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destiny Browser</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div id="bootloader">
+        <div class="loader-content">
+            <h1 style="text-align: center; margin-bottom: 20px;">Destiny</h1>
+            <div class="spinner"></div>
+            <p id="status-text" style="text-align: center;">Waking up engine...</p>
+        </div>
+    </div>
+
+    <div id="browser-container">
+        <div class="tab-bar">
+            <div class="tab active">
+                <span>New Tab</span>
+                <div class="tab-close"><i data-lucide="x" style="width: 14px; height: 14px;"></i></div>
+            </div>
+            <button class="new-tab-btn"><i data-lucide="plus" style="width: 18px; height: 18px;"></i></button>
+        </div>
+
+        <nav class="nav-bar">
+            <div class="nav-buttons">
+                <button id="back"><i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i></button>
+                <button id="forward"><i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i></button>
+                <button id="reload"><i data-lucide="rotate-cw" style="width: 18px; height: 18px;"></i></button>
+            </div>
+            <input type="text" id="address-bar" placeholder="Search or enter URL">
+            <button id="settings-btn" class="nav-buttons"><i data-lucide="settings"
+                    style="width: 18px; height: 18px;"></i></button>
+        </nav>
+
+        <main id="content-area">
+            <div id="new-tab-page">
+                <div class="ntp-content">
+                    <h1 class="ntp-logo">Destiny</h1>
+                    <div class="ntp-search">
+                        <i data-lucide="search" style="width: 20px; height: 20px; color: #9aa0a6;"></i>
+                        <input type="text" id="ntp-input" placeholder="Search the web or type a URL">
+                        <i data-lucide="mic" style="width: 20px; height: 20px; color: #8ab4f8;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <iframe id="browser-view" src="" style="display: none;"></iframe>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
