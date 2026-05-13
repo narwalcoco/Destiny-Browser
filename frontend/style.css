@@ -22,6 +22,14 @@ html {
     flex-direction: column;
 }
 
+/* Forces the entire app to take up exactly the height and width of the window */
+#browser-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
 /* Bootloader */
 #bootloader {
     position: fixed;
@@ -107,10 +115,8 @@ html {
 
 #address-bar {
     flex-grow: 1;
-    max-width: 800px;
-    /* Stops it from stretching infinitely */
-    margin: 0 auto;
-    /* Centers the bar in the remaining space */
+    margin: 0;
+    /* Removed 'margin: 0 auto' so it naturally left-aligns */
     background: #202124;
     border: none;
     border-radius: 24px;
@@ -124,6 +130,7 @@ html {
     box-shadow: 0 0 0 2px var(--accent);
 }
 
+/* Removes the ugly default HTML button look and perfectly centers the icons */
 .nav-buttons button,
 .new-tab-btn,
 #settings-btn {
@@ -137,6 +144,11 @@ html {
     border-radius: 50%;
     width: 32px;
     height: 32px;
+}
+
+/* Pushes ONLY the settings gear to the far right edge */
+#settings-btn {
+    margin-left: auto;
 }
 
 .nav-buttons button:hover,
@@ -181,7 +193,8 @@ html {
     width: 100%;
     max-width: 600px;
     transform: translateY(-10vh);
-    /* Pushes it up slightly off-center like Chrome */
+    /* Removed the negative translateY to drop the UI down to the true center. */
+    /* If you want it even lower, you can add: transform: translateY(10vh); */
 }
 
 .ntp-logo {
@@ -215,4 +228,26 @@ html {
     color: white;
     font-size: 16px;
     outline: none;
+}
+
+/* --- Lucide Icon Fixes --- */
+.nav-buttons button svg,
+.new-tab-btn svg,
+#settings-btn svg,
+.tab-close svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    /* Matches the text color automatically */
+    stroke-width: 2;
+    fill: none;
+    display: block;
+    /* Stops them from acting like text and squishing */
+}
+
+/* Make the tab close button slightly smaller */
+.tab-close svg {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
 }

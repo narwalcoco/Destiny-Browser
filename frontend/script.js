@@ -1,5 +1,18 @@
-// Initialize Lucide Icons
-lucide.createIcons();
+// Initialize Lucide Icons safely
+document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+});
+
+// Register the UV Service Worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js', {
+        scope: __uv$config.prefix
+    }).then(() => {
+        console.log('UV Service Worker Registered Successfully!');
+    }).catch((err) => {
+        console.error('Failed to register UV Service Worker:', err);
+    });
+}
 
 // --- Elements ---
 const addressBar = document.getElementById('address-bar');
@@ -42,7 +55,8 @@ function loadURL(inputStr) {
     iframe.style.display = 'block';
 
     // Load the URL
-    iframe.src = url;
+    // MAGIC HAPPENS HERE: Encode the URL through Ultraviolet
+    iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 }
 
 // Top Address Bar Listener

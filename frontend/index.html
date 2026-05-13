@@ -7,6 +7,8 @@
     <title>Destiny Browser</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@titaniumnetwork-dev/ultraviolet@2.0.0/dist/uv.bundle.js"></script>
+    <script src="uv.config.js"></script>
 </head>
 
 <body>
@@ -22,20 +24,19 @@
         <div class="tab-bar">
             <div class="tab active">
                 <span>New Tab</span>
-                <div class="tab-close"><i data-lucide="x" style="width: 14px; height: 14px;"></i></div>
+                <div class="tab-close"><i data-lucide="x"></i></div>
             </div>
-            <button class="new-tab-btn"><i data-lucide="plus" style="width: 18px; height: 18px;"></i></button>
+            <button class="new-tab-btn"><i data-lucide="plus"></i></button>
         </div>
 
         <nav class="nav-bar">
             <div class="nav-buttons">
-                <button id="back"><i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i></button>
-                <button id="forward"><i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i></button>
-                <button id="reload"><i data-lucide="rotate-cw" style="width: 18px; height: 18px;"></i></button>
+                <button id="back"><i data-lucide="arrow-left"></i></button>
+                <button id="forward"><i data-lucide="arrow-right"></i></button>
+                <button id="reload"><i data-lucide="rotate-cw"></i></button>
             </div>
-            <input type="text" id="address-bar" placeholder="Search or enter URL">
-            <button id="settings-btn" class="nav-buttons"><i data-lucide="settings"
-                    style="width: 18px; height: 18px;"></i></button>
+            <input type="text" id="address-bar" placeholder="Search the Web or type a URL">
+            <button id="settings-btn"><i data-lucide="more-vertical"></i></button>
         </nav>
 
         <main id="content-area">
